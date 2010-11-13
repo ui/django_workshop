@@ -1,0 +1,17 @@
+{% load pagination_tags %}
+
+{% autopaginate post_list 2 %}
+
+<h1>Index Page</h1>
+
+<ul>
+	{% for post in post_list %}
+	<li>
+		<a href = '{% url post_detail post.slug %}'>{{ post.title }}</a>
+		<br/>Oleh {{ post.author }} pada jam {{ post.pub_date }}
+		<br/> {{ post.content }}
+	</li>
+	{% endfor %}
+</ul>
+
+{% paginate %}
